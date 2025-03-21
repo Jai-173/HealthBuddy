@@ -1,0 +1,16 @@
+# Node.js dependencies
+backend/node_modules/
+backend/.env
+
+# Flask environment
+flask-backend/__pycache__/
+flask-backend/.env
+
+# Vite dependencies
+frontend/node_modules/
+frontend/.env
+
+# General
+.DS_Store
+.vscode/
+.idea/
