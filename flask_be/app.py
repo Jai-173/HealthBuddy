@@ -47,18 +47,32 @@ def sentiment_analysis():
     blob = TextBlob(user_text)
     polarity = blob.sentiment.polarity
 
+    # Convert polarity score into sentiment probabilities
     if polarity > 0.2:
-        sentiment = "positive"
+        positive_prob = min((polarity + 1) / 2, 1.0)  # Range [0,1]
+        negative_prob = 0
+        neutral_prob = 1 - positive_prob
+        sentiment = "Positive"
         message = "You seem to be in good spirits! Stay strong and keep up the positivity."
     elif polarity < -0.2:
-        sentiment = "negative"
-        message = "We're here for you. You're stronger than you feel right now - things will get better."
+        negative_prob = min((-polarity + 1) / 2, 1.0)  # Range [0,1]
+        positive_prob = 0
+        neutral_prob = 1 - negative_prob
+        sentiment = "Negative"
+        message = "Please consult a psychologist or a psychiatrist. Be kind to yourself and reach out for help."
     else:
-        sentiment = "neutral"
+        neutral_prob = 1
+        positive_prob = 0
+        negative_prob = 0
+        sentiment = "Neutral"
         message = "It's okay to feel this way. Take one step at a time - you've got this."
 
+    # Return sentiment probabilities alongside message
     return jsonify({
         "sentiment": sentiment,
+        "positive_prob": positive_prob,
+        "neutral_prob": neutral_prob,
+        "negative_prob": negative_prob,
         "message": message
     })
 

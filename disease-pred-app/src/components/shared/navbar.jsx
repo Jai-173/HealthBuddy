@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../../contexts/AuthContext';
+import { auth } from '../../firebase/firebase';
+import {
+  User,
+  Stethoscope,
+  History,
+  Moon,
+  Sun,
+  LogOut
+} from "lucide-react";
 
 const Navbar = () => {
+  const { currentUser } = useAuth();
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
-  const [user, setUser] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
   let dropdownTimeout = null;
 
@@ -18,18 +28,14 @@ const Navbar = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      localStorage.removeItem("user"); // Clear the stored user
+      navigate('/');
+    } catch (error) {
+      console.error('Error logging out:', error);
     }
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    setUser(null);
-    navigate("/");
   };
 
   const handleMouseEnter = () => {
@@ -40,6 +46,9 @@ const Navbar = () => {
   const handleMouseLeave = () => {
     dropdownTimeout = setTimeout(() => setShowDropdown(false), 100);
   };
+
+  // Update the isAdmin check
+  const isAdmin = currentUser?.email === "jaichowgule173@gmail.com";
 
   return (
     <nav
@@ -76,7 +85,7 @@ const Navbar = () => {
 
         {/* Profile Section */}
         <div className="relative">
-          {user ? (
+          {currentUser ? (
             <div className="relative flex items-center">
               <div
                 className="w-11 h-11 rounded-full bg-[url('/user.png')] bg-cover bg-center flex justify-center items-center cursor-pointer hover:scale-110 transition-transform border-2 border-[#08E8DE]"
@@ -89,18 +98,55 @@ const Navbar = () => {
               {/* Dropdown Menu */}
               {showDropdown && (
                 <div
-                  className="absolute top-14 right-0 bg-white shadow-lg rounded-md p-4 w-48 transition-opacity duration-300"
+                  className="absolute top-14 right-0 bg-white shadow-lg rounded-md p-4 w-48 transition-all duration-300 border border-gray-100"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
+                  id="user-dropdown"
+                  role="menu"
+                  aria-labelledby="dropdown-button"
                 >
-                  <p className="text-sm font-semibold text-[#3A5A75]">{user.name}</p>
-                  <p className="text-xs text-[#5BC7C8]">{user.email}</p>
-                  <button
-                    className="mt-2 w-full text-sm font-semibold text-[#FF7676] hover:underline"
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </button>
+                  <div className="border-b border-gray-200 pb-3 bg-gray-50 -m-4 mb-3 p-4 rounded-t-md">
+                    <p className="text-sm font-semibold text-[#3A5A75]">{currentUser.name}</p>
+                    <p className="text-xs text-[#5BC7C8]">{currentUser.email}</p>
+                  </div>
+
+                  <div className="py-2">
+                    <Link
+                      to="/profile"
+                      className="flex items-center py-2 px-2 text-sm text-[#404040] hover:text-[#0CAAAB] hover:bg-gray-50 rounded-md transition-all duration-200"
+                      role="menuitem"
+                    >
+                      <User size={16} className="mr-2" />
+                      My Profile
+                    </Link>
+                    <Link
+                      to="/predictor"
+                      className="flex items-center py-2 px-2 text-sm text-[#404040] hover:text-[#0CAAAB] hover:bg-gray-50 rounded-md transition-all duration-200"
+                      role="menuitem"
+                    >
+                      <Stethoscope size={16} className="mr-2" />
+                      Disease Predictor
+                    </Link>
+                    <Link
+                      to="/history"
+                      className="flex items-center py-2 px-2 text-sm text-[#404040] hover:text-[#0CAAAB] hover:bg-gray-50 rounded-md transition-all duration-200"
+                      role="menuitem"
+                    >
+                      <History size={16} className="mr-2" />
+                      Prediction History
+                    </Link>
+                  </div>
+
+                  <div className="pt-2 border-t border-gray-200 mt-1">
+                    <button
+                      className="flex items-center w-full py-2 px-2 text-sm cursor-pointer font-semibold text-[#FF7676] hover:text-[#ff6262] hover:bg-red-50 rounded-md transition-all duration-200"
+                      onClick={handleLogout}
+                      role="menuitem"
+                    >
+                      <LogOut size={16} className="mr-2" />
+                      Logout
+                    </button>
+                  </div>
                 </div>
               )}
             </div>

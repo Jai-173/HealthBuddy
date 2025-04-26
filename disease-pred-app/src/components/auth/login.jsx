@@ -1,42 +1,53 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from '../../firebase/firebase';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // ✅ Use navigate instead of useHistory
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-  
+
     try {
-      const response = await fetch("http://localhost:3000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-  
-      const data = await response.json();
-  
-      if (!response.ok) {
-        alert(data.error || "Login failed");
-        return;
-      }
-  
-      // ✅ Store token & user details
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-  
-      // ✅ Redirect to dashboard
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      
+      // Store complete user info
+      localStorage.setItem("user", JSON.stringify({
+        email: user.email,
+        uid: user.uid,
+        displayName: user.displayName,
+        isAuthenticated: true
+      }));
+
       navigate("/");
     } catch (error) {
       console.error("Login error:", error);
-      alert("Something went wrong. Please try again.");
+      alert(error.message || "Login failed. Please try again.");
     }
   };
-  
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      
+      localStorage.setItem("user", JSON.stringify({
+        email: user.email,
+        uid: user.uid,
+        displayName: user.displayName,
+        isAuthenticated: true
+      }));
+
+      navigate("/");
+    } catch (error) {
+      console.error("Google Sign-in error:", error);
+      alert(error.message || "Google Sign-in failed. Please try again.");
+    }
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-[url('/bg-1.jpg')] bg-center bg-cover">
@@ -72,10 +83,31 @@ const Login = () => {
                 required
               />
             </div>
-            <button type="submit" className="w-full py-3 bg-[#FF7676] text-white font-semibold rounded-lg mt-6 hover:bg-[#E65C5C] cursor-pointer">
+            <button type="submit" className="w-full py-3 bg-[#FF7676] text-white font-semibold rounded-lg hover:bg-[#E65C5C] cursor-pointer">
               Login
             </button>
           </form>
+          
+          {/* Add Google Sign-In button */}
+          <div className="mt-4">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-2 bg-white text-gray-500">Or continue with</span>
+              </div>
+            </div>
+            
+            <button
+              onClick={handleGoogleSignIn}
+              className="w-full mt-4 py-3 px-4 border flex justify-center items-center gap-2 bg-white cursor-pointer hover:bg-gray-50 border-gray-300 rounded-lg"
+            >
+              <img src="/google.svg" alt="Google" className="w-5 h-5" />
+              <span>Sign in with Google</span>
+            </button>
+          </div>
+
           <p className="text-sm text-center text-[#404040] mt-4">
             Don't have an account?{' '}
             <a href="/register" className="text-[#0CAAAB] hover:text-[#08E8DE]">

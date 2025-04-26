@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from '../contexts/AuthContext';
 import Navbar from './shared/navbar';
 import Footer from './shared/footer';
 import symptomsData from "./symptoms";
+import Swal from 'sweetalert2';
+import { Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 
 const symptomsList = Object.keys(symptomsData);
 
@@ -26,6 +33,20 @@ const Predictor = () => {
     const [sentimentLoading, setSentimentLoading] = useState(false);
 
     const navigate = useNavigate();
+    const { currentUser } = useAuth();
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+
+    useEffect(() => {
+        // Check both Firebase auth and localStorage
+        const checkAuth = async () => {
+            if (!currentUser && !storedUser) {
+                localStorage.removeItem("user"); // Clear any invalid data
+                navigate('/login');
+            }
+        };
+
+        checkAuth();
+    }, [currentUser, storedUser, navigate]);
 
     const handleNext = () => {
         if (step === 1 && (!formData.name || !formData.age || !formData.gender)) return;
@@ -86,30 +107,48 @@ const Predictor = () => {
 
     const handleSendEmail = async () => {
         if (!selectedDoctor || !selectedDoctor.email) {
-            console.error("Doctor not selected or missing email");
-            alert("Please select a doctor first.");
+            Swal.fire({
+                title: 'Select a Doctor',
+                text: 'Please select a doctor before sending the email.',
+                icon: 'warning',
+                confirmButtonColor: '#FFB347'
+            });
             return;
         }
 
         try {
-            console.log("Sending email with:", {
-                doctorEmail: selectedDoctor.email,
-                userName: formData.name,
-                disease: prediction
-            });
-
             const res = await axios.post("http://localhost:3000/api/doctors/send", {
                 doctorEmail: selectedDoctor.email,
                 userName: formData.name,
-                disease: prediction
+                userEmail: storedUser.email, // Add user's email
+                disease: prediction,
+                patientDetails: {
+                    age: formData.age,
+                    gender: formData.gender,
+                    symptoms: formData.symptoms.map(formatSymptom).join(", "),
+                    feeling: feelingText,
+                    sentiment: sentimentResult?.sentiment
+                }
             });
 
-            alert("Email sent successfully!");
+            Swal.fire({
+                title: 'Email Sent!',
+                text: 'The doctor has been notified successfully.',
+                icon: 'success',
+                confirmButtonColor: '#08E8DE'
+            });
+
         } catch (err) {
             console.error("Failed to send email:", err.message);
-            alert("Failed to send email.");
+            Swal.fire({
+                title: 'Error',
+                text: 'Failed to send email. Please try again.',
+                icon: 'error',
+                confirmButtonColor: '#FF7676'
+            });
         }
     };
+
 
 
 
@@ -186,21 +225,66 @@ const Predictor = () => {
                             ) : (
                                 <>
                                     <p><strong>Predicted Disease:</strong> {prediction}</p>
+
+                                    {sentimentLoading ? (
+                                        <p>Analyzing your mood...</p>
+                                    ) : (
+                                        <>
+                                            <p><strong>Sentiment:</strong> {sentimentResult?.sentiment}</p>
+                                            <p>{sentimentResult?.message}</p>
+                                        </>
+                                    )}
+
                                     <p className="mt-2 text-sm text-[#3A5A75]">
                                         This is not a professional medical diagnosis. Please consult a qualified doctor for expert advice.
                                     </p>
-                                    <p><strong>Feeling:</strong> {feelingText}</p>
-                                    {sentimentLoading ? <p>Analyzing your mood...</p> : (
-                                        <p><strong>Sentiment:</strong> {sentimentResult?.sentiment} - <em>{sentimentResult?.message}</em></p>
+                                    {sentimentResult && (
+                                        <div className="mt-6 w-64 mx-auto"> {/* Added width constraint and center alignment */}
+                                            <h3 className="text-lg font-semibold mb-2 text-center">Your Mood Overview</h3>
+                                            <Pie
+                                                data={{
+                                                    labels: ['Positive', 'Negative', 'Neutral'],
+                                                    datasets: [
+                                                        {
+                                                            data: [
+                                                                sentimentResult.positive_prob,
+                                                                sentimentResult.negative_prob,
+                                                                sentimentResult.neutral_prob
+                                                            ],
+                                                            backgroundColor: [
+                                                                '#4CAF50',
+                                                                '#F44336',
+                                                                '#FFC107'
+                                                            ],
+                                                            borderWidth: 1
+                                                        }
+                                                    ]
+                                                }}
+                                                options={{
+                                                    responsive: true,
+                                                    maintainAspectRatio: true, // This ensures the chart maintains its aspect ratio
+                                                    plugins: {
+                                                        legend: {
+                                                            position: 'bottom',
+                                                            labels: {
+                                                                font: {
+                                                                    size: 12 // Reduced font size for legend
+                                                                }
+                                                            }
+                                                        },
+                                                        tooltip: {
+                                                            callbacks: {
+                                                                label: function(context) {
+                                                                    return `${context.label}: ${(context.raw * 100).toFixed(1)}%`;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }}
+                                            />
+                                        </div>
                                     )}
 
-
-                                    <button
-                                        onClick={() => setStep(6)}
-                                        className="mt-4 px-4 py-2 bg-[#FF7676] cursor-pointer hover:bg-[#ff6262] text-white rounded-lg transition-colors"
-                                    >
-                                        View Recommended Doctors
-                                    </button>
                                 </>
                             )}
                         </div>
@@ -248,7 +332,13 @@ const Predictor = () => {
                     <div className="mt-6 flex justify-between">
                         {step > 1 && <button onClick={handleBack} className="px-5 py-2 bg-[#3A5A75] text-white rounded-lg hover:bg-[#2a4a65] transition-colors cursor-pointer">Back</button>}
                         {step < 4 && <button onClick={handleNext} className={`px-5 py-2 rounded-lg ${step === 1 && (!formData.name || !formData.age || !formData.gender) ? "bg-gray-300 cursor-not-allowed" : step === 2 && formData.symptoms.length === 0 ? "bg-gray-300 cursor-not-allowed" : "bg-[#08E8DE] hover:bg-[#0CAAAB] text-white cursor-pointer transition-colors"}`}>Next</button>}
-                        {step === 4 && <button onClick={handleSubmit} className="px-5 py-2 bg-[#08E8DE] hover:bg-[#0CAAAB] text-white rounded-lg transition-colors">Submit</button>}
+                        {step === 4 && <button onClick={handleSubmit} className="px-5 py-2 bg-[#08E8DE] hover:bg-[#0CAAAB] text-white cursor-pointer rounded-lg transition-colors">Submit</button>}
+                        {step === 5 && <button
+                            onClick={() => setStep(6)}
+                            className="mt-4 px-4 py-2 bg-[#FF7676] cursor-pointer hover:bg-[#ff6262] text-white rounded-lg transition-colors"
+                        >
+                            View Recommended Doctors
+                        </button>}
                     </div>
                 </div>
             </section>

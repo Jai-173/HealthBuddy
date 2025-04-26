@@ -1,12 +1,14 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../../contexts/AuthContext';
 
 const Hero = () => {
-
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
+  const storedUser = localStorage.getItem("user");
+
   const handleGetStarted = () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
+    if (!currentUser && !storedUser) {
       navigate("/login");
     } else {
       navigate("/predictor");
