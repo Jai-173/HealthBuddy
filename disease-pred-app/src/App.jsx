@@ -5,7 +5,7 @@ import Login from "./components/auth/login.jsx";
 import Register from "./components/auth/register.jsx";
 import Faq from "./components/faq.jsx"
 import Prediction from "./components/prediction.jsx";
-import Consultation from "./components/consultation.jsx";
+import About from "./components/about.jsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -29,8 +29,8 @@ const appRouter = createBrowserRouter([
     element: <Prediction />
   },
   {
-    path: "/consultation",
-    element: <Consultation />
+    path: "/about",
+    element: <About />
   }
 ]);
 

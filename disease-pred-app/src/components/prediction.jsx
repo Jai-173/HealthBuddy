@@ -18,13 +18,22 @@ const Predictor = () => {
     const [formData, setFormData] = useState({ name: "", age: "", gender: "", symptoms: [] });
     const [search, setSearch] = useState("");
     const [prediction, setPrediction] = useState(null);
+    const [doctors, setDoctors] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [selectedDoctor, setSelectedDoctor] = useState(null);
+    const [feelingText, setFeelingText] = useState("");
+    const [sentimentResult, setSentimentResult] = useState(null);
+    const [sentimentLoading, setSentimentLoading] = useState(false);
+
     const navigate = useNavigate();
 
     const handleNext = () => {
         if (step === 1 && (!formData.name || !formData.age || !formData.gender)) return;
         if (step === 2 && formData.symptoms.length === 0) return;
+        if (step === 3 && feelingText.trim() === "") return;
         setStep(step + 1);
     };
+
 
     const handleBack = () => setStep(step - 1);
 
@@ -43,21 +52,74 @@ const Predictor = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post("http://127.0.0.1:5000/predict", { symptoms: formData.symptoms });
-            setPrediction(response.data.disease);
-            setStep(4);
-        } catch (error) {
-            console.error("Error predicting disease:", error);
+            setIsLoading(true);
+
+            const response = await axios.post("http://127.0.0.1:5000/predict", {
+                symptoms: formData.symptoms
+            });
+            const predictedDisease = response.data.disease;
+            setPrediction(predictedDisease);
+
+            const docRes = await axios.get(`http://localhost:3000/api/doctors/${predictedDisease}`);
+            setDoctors(docRes.data);
+
+            // 💡 Add this block to analyze mood
+            if (feelingText.trim() !== "") {
+                try {
+                    const sentimentRes = await axios.post("http://127.0.0.1:5000/sentiment", { text: feelingText });
+                    setSentimentResult(sentimentRes.data);
+                } catch (err) {
+                    console.error("Sentiment fetch failed:", err);
+                    setSentimentResult(null);
+                }
+            }
+
+            setStep(5); // ✅ FIX: navigate to Result step
+        } catch (err) {
+            console.error("Error:", err.message);
+            alert("An error occurred while processing your request.");
+        } finally {
+            setIsLoading(false);
         }
     };
+
+
+    const handleSendEmail = async () => {
+        if (!selectedDoctor || !selectedDoctor.email) {
+            console.error("Doctor not selected or missing email");
+            alert("Please select a doctor first.");
+            return;
+        }
+
+        try {
+            console.log("Sending email with:", {
+                doctorEmail: selectedDoctor.email,
+                userName: formData.name,
+                disease: prediction
+            });
+
+            const res = await axios.post("http://localhost:3000/api/doctors/send", {
+                doctorEmail: selectedDoctor.email,
+                userName: formData.name,
+                disease: prediction
+            });
+
+            alert("Email sent successfully!");
+        } catch (err) {
+            console.error("Failed to send email:", err.message);
+            alert("Failed to send email.");
+        }
+    };
+
+
 
     return (
         <>
             <Navbar />
-            <section className="h-screen flex items-center justify-center bg-gradient-to-br from-[#F0F7F7] via-[#E6FAFA] to-[#08E8DE] p-6">
-                <div className="p-8 max-w-2xl mx-auto bg-white shadow-xl rounded-2xl w-full flex flex-col gap-6">
+            <section className="min-h-screen pt-20 pb-10 flex items-center justify-center bg-gradient-to-br from-[#F0F7F7] via-[#E6FAFA] to-[#08E8DE] p-6">
+                <div className="p-8 max-w-4xl mx-auto bg-white shadow-xl rounded-2xl w-full flex flex-col gap-6">
                     <div className="flex justify-between text-sm text-[#404040]">
-                        {["Personal Info", "Select Symptoms", "Review", "Result"].map((label, index) => (
+                        {["Personal Info", "Select Symptoms", "How you Feel?", "Review", "Result", "Recommended Doctors"].map((label, index) => (
                             <div
                                 key={index}
                                 className={`flex-1 text-center py-2 border-b-4 transition-all duration-300 ${step === index + 1 ? "border-[#08E8DE] font-bold text-[#0CAAAB]" : "border-[#F0F7F7]"
@@ -96,6 +158,19 @@ const Predictor = () => {
                     )}
 
                     {step === 3 && (
+                        <div className="space-y-4">
+                            <textarea
+                                rows={5}
+                                value={feelingText}
+                                onChange={(e) => setFeelingText(e.target.value)}
+                                placeholder="Tell us how you're feeling today..."
+                                className="w-full p-3 border rounded-lg focus:border-[#5BC7C8] focus:outline-none"
+                            />
+                        </div>
+                    )}
+
+
+                    {step === 4 && (
                         <div className="space-y-3 text-[#404040] bg-[#F0F7F7] p-4 rounded-lg">
                             <p><strong>Name:</strong> {formData.name}</p>
                             <p><strong>Age:</strong> {formData.age}</p>
@@ -104,18 +179,76 @@ const Predictor = () => {
                         </div>
                     )}
 
-                    {step === 4 && (
+                    {step === 5 && (
                         <div className="p-4 bg-[#E6FAFA] border border-[#5BC7C8] text-[#0CAAAB] rounded-lg">
-                            <strong>Predicted Disease:</strong> {prediction}
-                            <p className="mt-2 text-sm text-[#3A5A75]">This is not a professional medical diagnosis. Please consult a qualified doctor for expert advice.</p>
-                            <button onClick={() => navigate("/consultation")} className="mt-3 px-5 py-2 bg-[#FF7676] text-white rounded-lg hover:bg-[#ff6262] transition-colors">Consult Doctor</button>
+                            {isLoading ? (
+                                <div>Loading...</div>
+                            ) : (
+                                <>
+                                    <p><strong>Predicted Disease:</strong> {prediction}</p>
+                                    <p className="mt-2 text-sm text-[#3A5A75]">
+                                        This is not a professional medical diagnosis. Please consult a qualified doctor for expert advice.
+                                    </p>
+                                    <p><strong>Feeling:</strong> {feelingText}</p>
+                                    {sentimentLoading ? <p>Analyzing your mood...</p> : (
+                                        <p><strong>Sentiment:</strong> {sentimentResult?.sentiment} - <em>{sentimentResult?.message}</em></p>
+                                    )}
+
+
+                                    <button
+                                        onClick={() => setStep(6)}
+                                        className="mt-4 px-4 py-2 bg-[#FF7676] cursor-pointer hover:bg-[#ff6262] text-white rounded-lg transition-colors"
+                                    >
+                                        View Recommended Doctors
+                                    </button>
+                                </>
+                            )}
                         </div>
                     )}
 
+                    {step === 6 && (
+                        <div className="p-4 bg-white border border-[#5BC7C8] rounded-lg text-[#3A5A75]">
+                            <h2 className="text-xl font-bold mb-4">Recommended Doctors</h2>
+
+                            {doctors ? (
+                                <>
+                                    <p><strong>Specialization:</strong> {doctors.specialization}</p>
+                                    <p className="mt-2"><strong>Available Doctors:</strong></p>
+                                    <ul className="list-disc ml-5 mt-1 space-y-1">
+                                        {doctors.doctors?.map((doc, index) => (
+                                            <li key={index} className="flex items-center space-x-2">
+                                                <input
+                                                    type="radio"
+                                                    name="selectedDoctor"
+                                                    value={doc.email}
+                                                    onChange={() => setSelectedDoctor(doc)}
+                                                    className="cursor-pointer accent-[#08E8DE]"
+                                                />
+                                                <p><strong>{doc.name}</strong> — {doc.address}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <button
+                                        className={`mt-4 px-4 py-2 rounded-md text-white transition-colors ${selectedDoctor ? "bg-[#08E8DE] hover:bg-[#0CAAAB] cursor-pointer" : "bg-gray-300 cursor-not-allowed"}`}
+                                        onClick={handleSendEmail}
+                                        disabled={!selectedDoctor}
+                                    >
+                                        Send Email to Selected Doctor
+                                    </button>
+                                </>
+                            ) : (
+                                <p className="text-gray-400">No doctors available for this disease.</p>
+                            )}
+                        </div>
+                    )}
+
+
+
                     <div className="mt-6 flex justify-between">
-                        {step > 1 && <button onClick={handleBack} className="px-5 py-2 bg-[#3A5A75] text-white rounded-lg hover:bg-[#2a4a65] transition-colors">Back</button>}
-                        {step < 3 && <button onClick={handleNext} className={`px-5 py-2 rounded-lg ${step === 1 && (!formData.name || !formData.age || !formData.gender) ? "bg-gray-300 cursor-not-allowed" : step === 2 && formData.symptoms.length === 0 ? "bg-gray-300 cursor-not-allowed" : "bg-[#08E8DE] hover:bg-[#0CAAAB] text-white cursor-pointer transition-colors"}`}>Next</button>}
-                        {step === 3 && <button onClick={handleSubmit} className="px-5 py-2 bg-[#08E8DE] hover:bg-[#0CAAAB] text-white rounded-lg transition-colors">Submit</button>}
+                        {step > 1 && <button onClick={handleBack} className="px-5 py-2 bg-[#3A5A75] text-white rounded-lg hover:bg-[#2a4a65] transition-colors cursor-pointer">Back</button>}
+                        {step < 4 && <button onClick={handleNext} className={`px-5 py-2 rounded-lg ${step === 1 && (!formData.name || !formData.age || !formData.gender) ? "bg-gray-300 cursor-not-allowed" : step === 2 && formData.symptoms.length === 0 ? "bg-gray-300 cursor-not-allowed" : "bg-[#08E8DE] hover:bg-[#0CAAAB] text-white cursor-pointer transition-colors"}`}>Next</button>}
+                        {step === 4 && <button onClick={handleSubmit} className="px-5 py-2 bg-[#08E8DE] hover:bg-[#0CAAAB] text-white rounded-lg transition-colors">Submit</button>}
                     </div>
                 </div>
             </section>
