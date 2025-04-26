@@ -1,0 +1,775 @@
+[
+  {
+    "disease": "GERD",
+    "symptoms": ["Heartburn", "Regurgitation", "Chest pain", "Difficulty swallowing"],
+    "specialization": "Gastroenterology",
+    "doctors": [
+      {
+        "name": "Dr. Abhiman Pawar",
+        "address": "Opposite Sarvamangal Hospital, Namokar Heights Ground Floor, Vantmure Corner, Sangli-Miraj Road, Miraj, Maharashtra 416410",
+        "email": "gastrocareclinic@yahoo.com",
+        "phone1": "+91-8766677505",
+        "phone2": "",
+        "website": "https://www.gastrocaregalaxy.com/contact/"
+      },
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases and Endoscopy Centre, Opp to Shintre Hospital, Civil Hospital Chowk, Ambedkar Road, Sangli-416416, Maharashtra, India",
+        "email": null,
+        "phone1": null,
+        "phone2": null,
+        "website": "https://www.drudaysinhpatil.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Peptic ulcer diseae",
+    "symptoms": ["Burning stomach pain", "Bloating", "Heartburn", "Nausea"],
+    "specialization": "Gastroenterology",
+    "doctors": [
+      {
+        "name": "Dr. Abhiman Pawar",
+        "address": "Opposite Sarvamangal Hospital, Namokar Heights Ground Floor, Vantmure Corner, Sangli-Miraj Road, Miraj, Maharashtra 416410",
+        "email": "gastrocareclinic@yahoo.com",
+        "phone1": "+91-8766677505",
+        "phone2": "",
+        "website": "https://www.gastrocaregalaxy.com/contact/"
+      },
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases and Endoscopy Centre, Opp to Shintre Hospital, Civil Hospital Chowk, Ambedkar Road, Sangli-416416, Maharashtra, India",
+        "email": null,
+        "phone1": null,
+        "phone2": null,
+        "website": "https://www.drudaysinhpatil.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Diabetes",
+    "symptoms": ["Increased thirst", "Frequent urination", "Extreme hunger", "Fatigue", "Blurred vision"],
+    "specialization": "Endocrinology",
+    "doctors": [
+      {
+        "name": "Dr. Abhiman Pawar",
+        "address": "Opposite Sarvamangal Hospital, Namokar Heights Ground Floor, Vantmure Corner, Sangli-Miraj Road, Miraj, Maharashtra 416410",
+        "email": "gastrocareclinic@yahoo.com",
+        "phone1": "+91-8766677505",
+        "phone2": "",
+        "website": "https://www.gastrocaregalaxy.com/contact/"
+      }
+    ]
+  },
+  {
+    "disease": "Hepatitis B",
+    "symptoms": ["Abdominal pain", "Dark urine", "Fever", "Joint pain", "Loss of appetite", "Nausea and vomiting", "Weakness and fatigue", "Yellowing of your skin and the whites of your eyes (jaundice)"],
+    "specialization": "Hepatology",
+    "doctors": [
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases and Endoscopy Centre, Opp to Shintre Hospital, Civil Hospital Chowk, Ambedkar Road, Sangli-416416, Maharashtra, India",
+        "email": null,
+        "phone1": null,
+        "phone2": null,
+        "website": "https://www.drudaysinhpatil.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Heart attack",
+    "symptoms": ["Chest pain or discomfort", "Shortness of breath", "Cold sweat", "Nausea", "Lightheadedness"],
+    "specialization": "Cardiology",
+    "doctors": [
+      {
+        "name": "Synergy Multispeciality Hospital",
+        "address": "A/5, Sangli - Miraj Rd, Near S. T Workshop, Chandan Wadi, Miraj, 416410",
+        "email": "marketinghead@synergymshospital.com",
+        "phone1": "0233-2212994",
+        "phone2": "8421623777",
+        "website": "https://www.synergymshospital.com/contact-now"
+      }
+    ]
+  },
+  {
+    "disease": "Fungal infection",
+    "symptoms": ["Red, itchy, and scaly patches on the skin", "Rashes in warm, moist areas", "Cracked or peeling skin", "Nail discoloration"],
+    "specialization": "Dermatology",
+    "doctors": [
+      {
+        "name": "Dr. Abhiman Pawar",
+        "address": "Opposite Sarvamangal Hospital, Namokar Heights Ground Floor, Vantmure Corner, Sangli-Miraj Road, Miraj, Maharashtra 416410",
+        "email": "gastrocareclinic@yahoo.com",
+        "phone1": "+91-8766677505",
+        "phone2": "+91-8766693100",
+        "website": "https://www.gastrocaregalaxy.com/contact/"
+      },
+      {
+        "name": "Dr. Priya Deshmukh",
+        "address": "Deshmukh Skin Clinic, Near Civil Hospital, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9876543210",
+        "phone2": null,
+        "website": null
+      },
+      {
+        "name": "Dr. Irfana Sachin Patil",
+        "address": "Forever Young Skin & Hair Clinic, Rajarampuri, Kolhapur, Maharashtra",
+        "email": "foreverryoungclinic@gmail.com",
+        "phone1": "+91-9158482525",
+        "phone2": null,
+        "website": "https://www.bestdermatologistkolhapur.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Allergy",
+    "symptoms": ["Sneezing", "Runny nose", "Itchy eyes", "Skin rashes", "Shortness of breath"],
+    "specialization": "Allergy and Immunology",
+    "doctors": [
+      {
+        "name": "Dr. Prithviraj Methe",
+        "address": "BreatheWell Super Specialty Hospital, Chhatrapati Shivaji Maharaj Road, Opp Warana Bank, Madhav Peth, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9421234567",
+        "phone2": null,
+        "website": "https://www.lybrate.com/sangli/clinic/dr-methe-s-breathewell-pulmocare-super-specialty-hospital-miraj-miraj-1"
+      }
+    ]
+  },
+  {
+    "disease": "Bronchial Asthma",
+    "symptoms": ["Shortness of breath", "Chest tightness", "Wheezing", "Coughing"],
+    "specialization": "Pulmonology",
+    "doctors": [
+      {
+        "name": "Dr. Prithviraj Methe",
+        "address": "BreatheWell Super Specialty Hospital, Chhatrapati Shivaji Maharaj Road, Opp Warana Bank, Madhav Peth, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9421234567",
+        "phone2": null,
+        "website": "https://www.lybrate.com/sangli/clinic/dr-methe-s-breathewell-pulmocare-super-specialty-hospital-miraj-miraj-1"
+      },
+      {
+        "name": "Dr. Rahul Mali",
+        "address": "Mali Clinic, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9876543210",
+        "phone2": null,
+        "website": "https://www.lybrate.com/sangli/doctor/dr-rahul-mali-pulmonologist"
+      }
+    ]
+  },
+  {
+    "disease": "Hypertension",
+    "symptoms": ["Headaches", "Shortness of breath", "Nosebleeds", "Flushing", "Dizziness"],
+    "specialization": "Cardiology",
+    "doctors": [
+      {
+        "name": "Dr. Riyaj Mujawar",
+        "address": "Aryan Heart Care, Sangli-Miraj Road, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-1234567890",
+        "phone2": null,
+        "website": "https://www.drriyajmujawar.in/cardiologist-in-sangli"
+      }
+    ]
+  },
+  {
+    "disease": "Migraine",
+    "symptoms": ["Throbbing headache", "Nausea", "Sensitivity to light and sound", "Visual disturbances"],
+    "specialization": "Neurology",
+    "doctors": [
+      {
+        "name": "Dr. Ravindra Patil",
+        "address": "Neuro Care Clinic, Near Civil Hospital, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9876543210",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Cervical spondylosis",
+    "symptoms": ["Neck pain", "Stiffness", "Headaches", "Numbness in arms"],
+    "specialization": "Orthopedics",
+    "doctors": [
+      {
+        "name": "Dr. Suresh Deshmukh",
+        "address": "Deshmukh Orthopedic Clinic, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9123456789",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Paralysis (brain hemorrhage)",
+    "symptoms": ["Sudden weakness", "Loss of consciousness", "Speech difficulties", "Vision problems"],
+    "specialization": "Neurology",
+    "doctors": [
+      {
+        "name": "Dr. Ravindra Patil",
+        "address": "Neuro Care Clinic, Near Civil Hospital, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9876543210",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Jaundice",
+    "symptoms": ["Yellowing of skin and eyes", "Dark urine", "Fatigue", "Abdominal pain"],
+    "specialization": "Hepatology",
+    "doctors": [
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases and Endoscopy Centre, Opp to Shintre Hospital, Civil Hospital Chowk, Ambedkar Road, Sangli-416416, Maharashtra, India",
+        "email": null,
+        "phone1": null,
+        "phone2": null,
+        "website": "https://www.drudaysinhpatil.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Malaria",
+    "symptoms": ["Fever", "Chills", "Sweats", "Headaches", "Nausea and vomiting"],
+    "specialization": "Infectious Disease",
+    "doctors": [
+      {
+        "name": "Dr. Anjali Kulkarni",
+        "address": "Kulkarni Infectious Disease Clinic, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9988776655",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Chicken pox",
+    "symptoms": ["Itchy rash", "Fever", "Fatigue", "Loss of appetite", "Headache"],
+    "specialization": "Pediatrics",
+    "doctors": [
+      {
+        "name": "Dr. Shilpa R. Patil",
+        "address": "Samarth Neuro and Superspeciality Hospital, 1st Floor, Sangli-Miraj Road, Near Bharti Hospital, Samastanagar, Miraj, Maharashtra 416410",
+        "email": null,
+        "phone1": "+91-7378612600",
+        "phone2": "+91-233-2212600",
+        "website": "https://ravindrapatilneuro.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Dengue",
+    "symptoms": ["High fever", "Severe headache", "Pain behind the eyes", "Joint and muscle pain", "Nausea and vomiting"],
+    "specialization": "Infectious Disease",
+    "doctors": [
+      {
+        "name": "Dr. Anjali Kulkarni",
+        "address": "Kulkarni Infectious Disease Clinic, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9988776655",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Typhoid",
+    "symptoms": ["Prolonged fever", "Weakness", "Abdominal pain", "Headache", "Loss of appetite"],
+    "specialization": "Infectious Disease",
+    "doctors": [
+      {
+        "name": "Dr. Anjali Kulkarni",
+        "address": "Kulkarni Infectious Disease Clinic, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9988776655",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "hepatitis A",
+    "symptoms": ["Fatigue", "Nausea", "Abdominal pain", "Loss of appetite", "Jaundice"],
+    "specialization": "Hepatology",
+    "doctors": [
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases and Endoscopy Centre, Opposite Shintre Hospital, Civil Hospital Chowk, Ambedkar Road, Sangli-416416, Maharashtra, India",
+        "email": null,
+        "phone1": "+91-233-2327327",
+        "phone2": null,
+        "website": "https://www.drudaysinhpatil.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Hepatitis B",
+    "symptoms": ["Abdominal pain", "Dark urine", "Fever", "Joint pain", "Loss of appetite", "Nausea and vomiting", "Weakness and fatigue", "Yellowing of your skin and the whites of your eyes (jaundice)"],
+    "specialization": "Hepatology",
+    "doctors": [
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases and Endoscopy Centre, Opposite Shintre Hospital, Civil Hospital Chowk, Ambedkar Road, Sangli-416416, Maharashtra, India",
+        "email": null,
+        "phone1": "+91-233-2327327",
+        "phone2": null,
+        "website": "https://www.drudaysinhpatil.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Hepatitis C",
+    "symptoms": ["Fatigue", "Jaundice", "Abdominal pain", "Loss of appetite", "Dark urine"],
+    "specialization": "Hepatology",
+    "doctors": [
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases and Endoscopy Centre, Opposite Shintre Hospital, Civil Hospital Chowk, Ambedkar Road, Sangli-416416, Maharashtra, India",
+        "email": null,
+        "phone1": "+91-233-2327327",
+        "phone2": null,
+        "website": "https://www.drudaysinhpatil.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Hepatitis D",
+    "symptoms": ["Jaundice", "Abdominal Pain", "Fatigue", "Dark Urine"],
+    "specialization": "Gastroenterologist/Hepatologist",
+    "doctors": [
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases & Endoscopy Centre, Sangli",
+        "email": "contact@drudaysinhpatil.com",
+        "phone1": "",
+        "phone2": "",
+        "website": "https://www.drudaysinhpatil.com/"
+      },
+      {
+        "name": "Dr. Amit Deshmukh",
+        "address": "Pune Liver Institute, Pune",
+        "email": "info@pune-liver-institute.com",
+        "phone1": "+91 20 40004000",
+        "phone2": "+91 8888888888",
+        "website": "https://www.pune-liver-institute.com"
+      }
+    ]
+  },
+  {
+    "disease": "Hepatitis E",
+    "symptoms": ["Jaundice", "Fever", "Loss of Appetite", "Joint Pain"],
+    "specialization": "Gastroenterologist/Hepatologist",
+    "doctors": [
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases & Endoscopy Centre, Sangli",
+        "email": "contact@drudaysinhpatil.com",
+        "phone1": "",
+        "phone2": "",
+        "website": "https://www.drudaysinhpatil.com/"
+      },
+      {
+        "name": "Dr. Priya Reddy",
+        "address": "Satara Gastro & Liver Clinic, Satara",
+        "email": "drpriya.reddy@sataragastro.com",
+        "phone1": "+91 2162 220033",
+        "phone2": "+91 9999999999",
+        "website": "https://www.sataragastro.com"
+      }
+    ]
+  },
+  {
+    "disease": "Alcoholic hepatitis",
+    "symptoms": ["Jaundice", "Fatigue", "Abdominal pain", "Nausea", "Loss of appetite"],
+    "specialization": "Hepatology",
+    "doctors": [
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases and Endoscopy Centre, Opposite Shintre Hospital, Civil Hospital Chowk, Ambedkar Road, Sangli-416416, Maharashtra, India",
+        "email": null,
+        "phone1": "+91-233-2327327",
+        "phone2": null,
+        "website": "https://www.drudaysinhpatil.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Tuberculosis",
+    "symptoms": ["Persistent cough", "Chest pain", "Coughing up blood", "Night sweats", "Weight loss"],
+    "specialization": "Pulmonology",
+    "doctors": [
+      {
+        "name": "Dr. Prithviraj Methe",
+        "address": "BreatheWell Super Specialty Hospital, Chhatrapati Shivaji Maharaj Road, Opp Warana Bank, Madhav Peth, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9421234567",
+        "phone2": null,
+        "website": "https://www.lybrate.com/sangli/clinic/dr-methe-s-breathewell-pulmocare-super-specialty-hospital-miraj-miraj-1"
+      }
+    ]
+  },
+  {
+    "disease": "Common Cold",
+    "symptoms": ["Runny or stuffy nose", "Sore throat", "Cough", "Mild fever", "Fatigue"],
+    "specialization": "General Medicine",
+    "doctors": [
+      {
+        "name": "Dr. Suresh Deshmukh",
+        "address": "Deshmukh Orthopedic Clinic, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9123456789",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Pneumonia",
+    "symptoms": ["Cough with phlegm", "Fever", "Shortness of breath", "Chest pain", "Fatigue"],
+    "specialization": "Pulmonology",
+    "doctors": [
+      {
+        "name": "Dr. Prithviraj Methe",
+        "address": "BreatheWell Super Specialty Hospital, Chhatrapati Shivaji Maharaj Road, Opp Warana Bank, Madhav Peth, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9421234567",
+        "phone2": null,
+        "website": "https://www.lybrate.com/sangli/clinic/dr-methe-s-breathewell-pulmocare-super-specialty-hospital-miraj-miraj-1"
+      }
+    ]
+  },
+  {
+    "disease": "Dimorphic hemmorhoids(piles)",
+    "symptoms": ["Rectal bleeding", "Itching around the anus", "Pain during bowel movements", "Swelling near the anus"],
+    "specialization": "Proctology",
+    "doctors": [
+      {
+        "name": "Dr. Rajesh Patil",
+        "address": "Patil Surgical Clinic, Near Shivaji Chowk, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9876543210",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Heart attack",
+    "symptoms": ["Chest pain", "Shortness of breath", "Sweating", "Nausea", "Pain in arms or jaw"],
+    "specialization": "Cardiology",
+    "doctors": [
+      {
+        "name": "Dr. Vinayak Joshi",
+        "address": "Joshi Heart Care Centre, Near Civil Hospital, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9988776655",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Varicose veins",
+    "symptoms": ["Swollen veins", "Pain or heaviness in legs", "Itching around veins", "Skin discoloration"],
+    "specialization": "Vascular Surgery",
+    "doctors": [
+      {
+        "name": "Dr. Shubham Deshmukh",
+        "address": "Deshmukh Vascular Clinic, Near Sangli Railway Station, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9123456789",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Hypothyroidism",
+    "symptoms": ["Fatigue", "Weight gain", "Cold intolerance", "Constipation", "Dry skin"],
+    "specialization": "Endocrinology",
+    "doctors": [
+      {
+        "name": "Dr. Snehal Jadhav",
+        "address": "Jadhav Endocrine Clinic, Near Shivaji Chowk, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9876543210",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Hyperthyroidism",
+    "symptoms": ["Weight loss", "Rapid heartbeat", "Nervousness", "Tremors", "Increased appetite"],
+    "specialization": "Endocrinology",
+    "doctors": [
+      {
+        "name": "Dr. Snehal Jadhav",
+        "address": "Jadhav Endocrine Clinic, Near Shivaji Chowk, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9876543210",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Hypoglycemia",
+    "symptoms": ["Shaking", "Sweating", "Rapid heartbeat", "Dizziness", "Confusion"],
+    "specialization": "Endocrinology",
+    "doctors": [
+      {
+        "name": "Dr. Snehal Jadhav",
+        "address": "Jadhav Endocrine Clinic, Near Shivaji Chowk, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9876543210",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Osteoarthristis",
+    "symptoms": ["Joint pain", "Stiffness", "Swelling", "Reduced range of motion"],
+    "specialization": "Orthopedics",
+    "doctors": [
+      {
+        "name": "Dr. Suresh Deshmukh",
+        "address": "Deshmukh Orthopedic Clinic, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9123456789",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Arthritis",
+    "symptoms": ["Joint pain", "Swelling", "Stiffness", "Redness around joints"],
+    "specialization": "Rheumatology",
+    "doctors": [
+      {
+        "name": "Dr. Meera Prasad",
+        "address": "Bharati Vidyapeeth University Medical College and Hospital, Wanlesswadi, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-233-2601592",
+        "phone2": null,
+        "website": "https://www.bharatihospital.org.in/"
+      }
+    ]
+  },
+  {
+    "disease": "(vertigo) Paroymsal  Positional Vertigo",
+    "symptoms": ["Dizziness", "Vertigo", "Nausea", "Balance problems"],
+    "specialization": "Neurology",
+    "doctors": [
+      {
+        "name": "Dr. Ravindra R. Patil",
+        "address": "Samarth Neuro and Superspeciality Hospital, Near Bharti Hospital, Samastanagar, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-7378612600",
+        "phone2": "+91-233-2212600",
+        "website": "https://ravindrapatilneuro.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Acne",
+    "symptoms": ["Pimples", "Blackheads", "Whiteheads", "Oily skin", "Scarring"],
+    "specialization": "Dermatology",
+    "doctors": [
+      {
+        "name": "Dr. Priya Deshmukh",
+        "address": "Deshmukh Skin Clinic, Near Civil Hospital, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9876543210",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Psoriasis",
+    "symptoms": ["Red patches of skin covered with thick, silvery scales", "Dry and cracked skin that may bleed", "Itching, burning, or soreness", "Swollen or stiff joints"],
+    "specialization": "Dermatology",
+    "doctors": [
+      {
+        "name": "Dr. Archana Sakrudas Dagale",
+        "address": "Government Medical College and Hospital, Sangli, Maharashtra",
+        "email": null,
+        "phone1": null,
+        "phone2": null,
+        "website": null
+      },
+      {
+        "name": "Dr. Irfana Sachin Patil",
+        "address": "Forever Young Skin & Hair Clinic, Rajarampuri, Kolhapur, Maharashtra",
+        "email": null,
+        "phone1": "+91-9604260786",
+        "phone2": null,
+        "website": "https://www.bestdermatologistkolhapur.com/"
+      },
+      {
+        "name": "Dr. Nipun Rasal",
+        "address": "Dr Batra's® Homeopathy Clinic, Police Headquarters Road, Malhar Peth, Satara, Maharashtra",
+        "email": null,
+        "phone1": "+91-9033001649",
+        "phone2": null,
+        "website": "https://clinics.drbatras.com/satara/psoriasis-doctor-malhar-peth.php"
+      },
+      {
+        "name": "Dr. R.S. Sonawane",
+        "address": "Psoriatreat Clinic, Pune, Maharashtra",
+        "email": null,
+        "phone1": "+91-8605000200",
+        "phone2": null,
+        "website": "https://psoriatreat.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Urinary tract infection",
+    "symptoms": ["Frequent urge to urinate", "Burning sensation during urination", "Cloudy or strong-smelling urine", "Pelvic pain", "Blood in urine"],
+    "specialization": "Urology",
+    "doctors": [
+      {
+        "name": "Dr. Ramesh Patil",
+        "address": "Patil Urology Clinic, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9876543210",
+        "phone2": null,
+        "website": null
+      },
+      {
+        "name": "Dr. Manish Deshmukh",
+        "address": "Deshmukh Urology Centre, Miraj, Maharashtra",
+        "email": null,
+        "phone1": "+91-9123456789",
+        "phone2": null,
+        "website": null
+      }
+    ]
+  },
+  {
+    "disease": "Impetigo",
+    "symptoms": ["Red sores that quickly rupture, ooze for a few days, and then form a yellowish-brown crust", "Itching", "Swollen lymph nodes"],
+    "specialization": "Dermatology",
+    "doctors": [
+      {
+        "name": "Dr. Shubham Deshmukh",
+        "address": "Deshmukh Skin Clinic, Near Civil Hospital, Sangli, Maharashtra",
+        "email": null,
+        "phone1": "+91-9123456789",
+        "phone2": null,
+        "website": null
+      },
+      {
+        "name": "Dr. Irfana Sachin Patil",
+        "address": "Forever Young Skin & Hair Clinic, Rajarampuri, Kolhapur, Maharashtra",
+        "email": "foreverryoungclinic@gmail.com",
+        "phone1": "+91-9158482525",
+        "phone2": null,
+        "website": "https://www.bestdermatologistkolhapur.com/"
+      }
+    ]
+  },
+  {
+    "disease": "Chronic cholestasis",
+    "symptoms": ["Jaundice", "Itching", "Fatigue", "Yellowing of Eyes"],
+    "specialization": "Gastroenterologist",
+    "doctors": [
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases & Endoscopy Centre, Ambedkar Road, Sangli",
+        "email": "contact@drudaysinhpatil.com",
+        "phone1": "",
+        "phone2": "",
+        "website": "https://www.drudaysinhpatil.com/"
+      },
+      {
+        "name": "Dr. Rajesh Kulkarni",
+        "address": "Kolhapur Gastro Care, Tarabai Park, Kolhapur",
+        "email": "info@kolhapurgastrocare.com",
+        "phone1": "+91 231 2654321",
+        "phone2": "+91 9876543210",
+        "website": "https://www.kolhapurgastrocare.com"
+      }
+    ]
+  },
+  {
+    "disease": "Drug Reaction",
+    "symptoms": ["Skin Rash", "Itching", "Blisters", "Fever"],
+    "specialization": "Dermatologist",
+    "doctors": [
+      {
+        "name": "Dr. Yogesh M Shah",
+        "address": "Bharati Vidyapeeth Medical College, Sangli",
+        "email": "",
+        "phone1": "",
+        "phone2": "",
+        "website": "https://scholar.google.co.in/citations?hl=en&user=u1LcgHwAAAAJ"
+      },
+      {
+        "name": "Dr. Anjali Deshpande",
+        "address": "Pune Skin Clinic, Koregaon Park, Pune",
+        "email": "dr.anjalid@puneskinclinic.com",
+        "phone1": "+91 20 26001234",
+        "phone2": "+91 9898989898",
+        "website": "https://www.puneskinclinic.com"
+      }
+    ]
+  },
+  {
+    "disease": "AIDS",
+    "symptoms": ["Fatigue", "Weight Loss", "Fever", "Recurrent Infections"],
+    "specialization": "Infectious Disease Specialist",
+    "doctors": [
+      {
+        "name": "Dr. Vikram Joshi",
+        "address": "Ruby Hall Clinic, Pune",
+        "email": "vikram.joshi@rubyhall.com",
+        "phone1": "+91 20 66455555",
+        "phone2": "+91 7777777777",
+        "website": "https://www.rubyhall.com"
+      },
+      {
+        "name": "Dr. Meera Kulkarni",
+        "address": "Kolhapur HIV Care Center, Rajarampuri, Kolhapur",
+        "email": "drmeera@kolhapurhivcare.org",
+        "phone1": "+91 231 2678901",
+        "phone2": "",
+        "website": "https://www.kolhapurhivcare.org"
+      }
+    ]
+  },
+  {
+    "disease": "Gastroenteritis",
+    "symptoms": ["Diarrhea", "Stomach Pain", "Nausea", "Vomiting"],
+    "specialization": "Gastroenterologist",
+    "doctors": [
+      {
+        "name": "Dr. Udaysinh Patil",
+        "address": "Pratibha Digestive Diseases & Endoscopy Centre, Sangli",
+        "email": "contact@drudaysinhpatil.com",
+        "phone1": "",
+        "phone2": "",
+        "website": "https://www.drudaysinhpatil.com/"
+      },
+      {
+        "name": "Dr. Sandeep Diwan",
+        "address": "Diwan Hospital, Miraj",
+        "email": "",
+        "phone1": "",
+        "phone2": "+91 9823029328",
+        "website": ""
+      }
+    ]
+  }
+]

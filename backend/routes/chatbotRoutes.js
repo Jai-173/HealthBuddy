@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
                 {
                     role: "user",
                     parts: [
-                        { text: "You are a medical assistant specializing in disease prediction. When I describe symptoms, suggest possible diseases and explanations." }
+                        { text: "You are a medical assistant specializing in disease prediction. When I describe symptoms, suggest possible diseases and explanations. Try to to give simple explainations that patient understands. Try not to mislead the patient. If the disease is an extreme case, do not panic the patient, handle with care. Strictly give only Medical responses, if questions other than disease predictions are asked tell them that you are a medical assistant and cannot assist in these types of request." }
                     ]
                 },
                 { role: "user", parts: [{ text: userMessage }] } // Ensures context is applied
