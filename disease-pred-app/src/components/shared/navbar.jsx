@@ -98,7 +98,7 @@ const Navbar = () => {
               {/* Dropdown Menu */}
               {showDropdown && (
                 <div
-                  className="absolute top-14 right-0 bg-white shadow-lg rounded-md p-4 w-48 transition-all duration-300 border border-gray-100"
+                  className="absolute top-14 right-0 bg-white shadow-lg rounded-md p-4 min-w-60 transition-all duration-300 border border-gray-100"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   id="user-dropdown"
@@ -126,14 +126,6 @@ const Navbar = () => {
                     >
                       <Stethoscope size={16} className="mr-2" />
                       Disease Predictor
-                    </Link>
-                    <Link
-                      to="/history"
-                      className="flex items-center py-2 px-2 text-sm text-[#404040] hover:text-[#0CAAAB] hover:bg-gray-50 rounded-md transition-all duration-200"
-                      role="menuitem"
-                    >
-                      <History size={16} className="mr-2" />
-                      Prediction History
                     </Link>
                   </div>
 

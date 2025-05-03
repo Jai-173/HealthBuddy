@@ -31,9 +31,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/faq",
         element: (
-          <ProtectedRoute>
             <Faq />
-          </ProtectedRoute>
         )
       },
       {
@@ -47,9 +45,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: (
-          <ProtectedRoute>
             <About />
-          </ProtectedRoute>
         )
       },
       {

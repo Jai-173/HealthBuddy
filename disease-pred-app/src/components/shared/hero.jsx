@@ -34,7 +34,10 @@ const Hero = () => {
               <button onClick={handleGetStarted} className="bg-[#FF7676] text-white px-5 py-2 rounded-md font-bold text-lg shadow-md transition duration-300 hover:bg-[#ff6262] cursor-pointer">
                 GET STARTED
               </button>
-              <button className="bg-[#0CAAAB] text-white px-5 py-2 rounded-md font-bold text-lg shadow-md transition duration-300 hover:bg-[#098e8f] cursor-pointer">
+              <button 
+                onClick={() => navigate('/about')} 
+                className="bg-[#0CAAAB] text-white px-5 py-2 rounded-md font-bold text-lg shadow-md transition duration-300 hover:bg-[#098e8f] cursor-pointer"
+              >
                 LEARN MORE
               </button>
             </div>
