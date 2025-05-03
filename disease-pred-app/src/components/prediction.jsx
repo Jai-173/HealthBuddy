@@ -274,7 +274,7 @@ const Predictor = () => {
                                                         },
                                                         tooltip: {
                                                             callbacks: {
-                                                                label: function(context) {
+                                                                label: function (context) {
                                                                     return `${context.label}: ${(context.raw * 100).toFixed(1)}%`;
                                                                 }
                                                             }
@@ -339,6 +339,14 @@ const Predictor = () => {
                         >
                             View Recommended Doctors
                         </button>}
+                        {step === 6 && (
+                            <button
+                                onClick={() => navigate('/')}
+                                className="px-5 py-2 bg-[#FF7676] text-white rounded-lg hover:bg-[#ff6262] transition-colors cursor-pointer flex items-center gap-1"
+                            >
+                                Exit to Home
+                            </button>
+                        )}
                     </div>
                 </div>
             </section>
